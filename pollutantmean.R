@@ -26,3 +26,12 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 	}
 	return(mean(pollutants))
 }
+
+# Testing function
+testpollutantmean <- function() {
+	test1 <- round(pollutantmean("specdata", "sulfate", 1:10), 3) == 4.064
+	test2 <- round(pollutantmean("specdata", "nitrate", 70:72), 3) == 1.706
+	test3 <- round(pollutantmean("specdata", "nitrate", 23), 3) == 1.281
+	return (test1 & test2 & test3)
+}
+if(!testpollutantmean()) print("Test failed")
